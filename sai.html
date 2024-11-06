@@ -1,0 +1,194 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Mess Pass</title>
+<style>
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+    margin: 0;
+    padding: 0;
+}
+.container {
+    max-width: 400px;
+    margin: 50px auto;
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    position: relative;
+}
+.profile-image {
+    position: absolute;
+    top: 70px;
+    left: 20px;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+}
+.details {
+    margin-left: 140px;
+}
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+p {
+    margin-bottom: 10px;
+}
+.approved {
+    color: green;
+    font-weight: bold;
+    text-align: center;
+}
+.grey-bar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 50px;
+    background-color: #808080;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+.grey-bar:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 30%;
+    height: 2px;
+    background-color: white;
+    border-radius: 10px;
+}
+.grey-bar h1 {
+    color: white;
+    margin: 0;
+    font-size: 20px;
+}
+.grey-bar .close {
+    color: white;
+    font-size: 10px;
+    font-weight: bold;
+    cursor: pointer;
+    position: absolute;
+    right: 20px;
+}
+.square-box {
+    width: 150px;
+    height: 150px;
+    border: 10px solid blue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    border-radius: 0px;
+    margin-top: 20px;
+    position: relative;
+}
+.inner-square {
+    width: 10px; /* Start with width 0 */
+    height: 35px; /* Height of the inner square */
+    border: 5px solid rgb(0, 0, 0); /* Green border for the inner square */
+    border-radius: 25px;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 50%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%); /* Adjust for centering */
+    animation: expand-contract 30s infinite; /* Animation to expand and contract */
+    overflow: hidden; /* Prevent overflow */
+}
+
+@keyframes expand-contract {
+    0%, 100% {
+        width: 0; /* Start and end with width 0 */
+        transform: translate(-50%, -50%); /* Center it */
+    }
+    50% {
+        width: 90px; /* Expand to final width */
+        transform: translate(-50%, -50%); /* Keep centered */
+    }
+}
+.accepted-text {
+    color: green;
+    font-size: 15px;
+    padding: 5px; /* Padding to center text vertically */
+    white-space: nowrap; /* Prevent text wrapping */
+}
+.timer {
+    position: absolute;
+    top: 74px;
+    right: 20px;
+    font-size: 15px;
+    color: rgb(25, 25, 25);
+    background-color: rgb(159, 159, 159);
+    padding: 5px;
+    border-radius: 10px;
+}
+</style>
+</head>
+<body>
+<div class="container">
+    <div class="grey-bar">
+        <h1>Mess Pass</h1>
+        <div class="close">X</div>
+    </div>
+    <script>
+        let timeLeft = 30; // 30 seconds
+        function startTimer() {
+            const timerElement = document.getElementById('timer');
+            const countdown = setInterval(() => {
+                if (timeLeft <= 0) {
+                    clearInterval(countdown);
+                    timerElement.innerHTML = "Time's up!";
+                } else {
+                    timerElement.innerHTML = timeLeft;
+                    timeLeft--;
+                }
+            }, 1000);
+        }
+        window.onload = startTimer; // Start timer when the page loads
+    </script>
+    <img src="thiru.jpeg" alt="Profile Image" class="profile-image">
+    <div class="details"><br>
+        <p>Dinner</p>
+        <p>12314824</p>
+        <p>Banla Thirumal Reddy</p>
+        <p>Mess BH-4</p>
+        P132:B.Tech. (Computer Science and Engineering) (2023)
+        <p>
+            <script>
+                const currentDate = new Date();
+                const options = { 
+                    month: 'short', 
+                    day: 'numeric', 
+                    year: 'numeric', 
+                    hour: 'numeric', 
+                    minute: 'numeric', 
+                    hour12: false,
+                    timeZone: 'Asia/Kolkata' // Set timezone to IST
+                };
+                document.write(new Intl.DateTimeFormat('en-IN', options).format(currentDate));
+            </script>
+        </p>
+        <div class="approved">Meal Approved</div>
+        <div class="square-box">
+            <div class="inner-square">
+                
+                <span class="accepted-text"><img src = "tick.png"><b><b>ACCEPTED</b></b></span>
+            </div>
+        </div>
+        <div class="timer" id="timer">30s</div>
+    </div>
+</div>
+</body>
+</html>
+

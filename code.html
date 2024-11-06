@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Mess Pass</title>
+<style>
+body {
+font-family: Arial, sans-serif;
+background-color: #f2f2f2;
+margin: 0;
+padding: 0;
+}
+.container {
+max-width: 400px;
+margin: 50px auto;
+background-color: white;
+padding: 20px;
+border-radius: 5px;
+box-shadow: 0 0 10px rgba(0,0,0,0.1);
+position: relative;
+padding-top: 70px;
+}
+.profile-image {
+position: absolute;
+top: 70px;
+left: 20px;
+width: 100px;
+height: 100px;
+border-radius: 50%;
+}
+.details {
+margin-left: 140px;
+}
+h1 {
+text-align: center;
+margin-bottom: 20px;
+}
+p {
+margin-bottom: 10px;
+display: flex;
+justify-content: space-between;
+align-items: center;
+}
+.date {
+text-align: left;
+}
+.time {
+text-align: right;
+}
+.approved {
+color: green;
+font-weight: bold;
+text-align: center;
+}
+.grey-bar {
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 50px;
+background-color: #808080;
+display: flex;
+justify-content: center;
+align-items: center;
+padding: 0 20px;
+box-sizing: border-box;
+position: relative;
+}
+.grey-bar:before {
+content: "";
+position: absolute;
+top: 10px;
+left: 50%;
+transform: translateX(-50%);
+width: 30%;
+height: 2px;
+background-color: white;
+border-radius: 10px;
+}
+.grey-bar h1 {
+color: white;
+margin: 0;
+font-size: 20px;
+}
+.grey-bar .close {
+color: white;
+font-size: 10px;
+font-weight: bold;
+cursor: pointer;
+position: absolute;
+right: 20px;
+}
+.square-box {
+width: 150px; /* Set width for the square */
+height: 150px; /* Set height for the square */
+border: 10px solid blue; /* Thicker blue border */
+display: flex;
+justify-content: center;
+align-items: center;
+background-color: white; /* Background color inside the square */
+border-radius: 15px; /* Curved corners */
+margin-top: 20px; /* Space above the square box */
+position: relative; /* For positioning the inner square */
+}
+.accepted-text {
+color: green; /* Text color */
+font-size: 20px; /* Font size for the text */
+position: relative; /* For positioning the inner square */
+padding: 10px; /* Padding for spacing */
+}
+.inner-square {
+width: 100px; /* Width of the inner square */
+height: 100px; /* Height of the inner square */
+border: 5px solid green; /* Green border for the inner square */
+position: absolute; /* Positioning it inside the outer square */
+display: flex;
+justify-content: center;
+align-items: center;
+top: 50%; /* Center vertically */
+left: 50%; /* Center horizontally */
+transform: translate(-50%, -50%); /* Adjust for centering */
+}
+</style>
+</head>
+<body>
+<div class="container">
+<div class="grey-bar">
+    <h1>Mess Pass</h1>
+    <div class="close">X</div>
+</div>
+<img src="" alt="Profile Image" class="profile-image">
+<div class="details">
+    <p>
+      <span>Dinner</span>
+      <span class="date">
+        <script>
+          const currentDate = new Date('2024-11-05T17:07:00');
+          const options = { month: 'short', day: 'numeric', year: 'numeric' };
+          document.write(currentDate.toLocaleString('en-IN', options));
+        </script>
+      </span>
+    </p>
+    <p>
+      <span>12314824</span>
+      <span class="time">
+        <script>
+          const currentDate = new Date('2024-11-05T17:07:00');
+          const options = { hour: 'numeric', minute: 'numeric', timeZone: 'Asia/Kolkata' };
+          document.write(currentDate.toLocaleString('en-IN', options));
+        </script>
+      </span>
+    </p>
+    <p>Banla Thirumal Reddy</p>
+    <p>Mess BH-4</p>
+    <p>
+      <span>P132:B.Tech. (Computer Science and Engineering) (2023)</span>
+      <span class="time">
+        <script>
+          const currentDate = new Date('2024-11-05T17:07:00');
+          const options = { hour: 'numeric', minute: 'numeric', timeZone: 'Asia/Kolkata' };
+          document.write(currentDate.toLocaleString('en-IN', options));
+        </script>
+      </span>
+    </p>
+    <div class="approved">Meal Approved</div>
+    <div class="square-box">
+      <span class="tick">✔</span>
+      <div class="inner-square">
+        <span class="accepted-text">Accepted</span>
+      </div>
+    </div>
+</div>
+</div>
+</body>
+</html>
